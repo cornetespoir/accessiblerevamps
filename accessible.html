@@ -1341,10 +1341,25 @@ body.night a:hover {
             <div class="chat">{block:Label}<b>{Label}</b>{/block:Label} {Line}<br/></div>
             {/block:Lines}
             {/block:chat}
-            {block:answer}
-            <b>{Question}</b>
-            <p>{Answer}</p>
-            {/block:answer}
+              {block:Answer}
+    <div class="texting">
+    <div class="question">
+        <b>{Asker}:
+       {Question}</b>
+    </div>
+
+   
+
+    <div class="replies">
+     {block:Answerer}
+       
+          {Answerer}: {Answer}
+  
+    {/block:Answerer}
+        {Replies}
+    </div>
+    </div>
+{/block:Answer}
             {block:Caption}
             <div class="caption">
                {block:NotReblog}
