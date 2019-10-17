@@ -15,8 +15,11 @@ Credits
     + flexible frames by nouvae
     + css photosets by annathms and egg.design
     
-Version 1.0
+Version 1.1
 
+- fixed captions
+- fixed blacklist
+- removed unused features
 -->
 
 <!DOCTYPE html>
@@ -83,7 +86,6 @@ $(document).ready(flexFrame);
 <meta name="text:blacklist3" content="other" />
 
 <meta name="color:highlight" content="#dffaf3" />
-<meta name="text:featured tag" content="featured" />
 
 <meta name="if:night mode default" content="" />
 <meta name="if:header" content="" />
@@ -255,6 +257,14 @@ body {
 	background-attachment:fixed;
 	color:{color:text};
 	
+}
+
+.chatpost, .linkpost, .quotepost, .photopost, .audiopost {
+    background:{color:posts};
+}
+
+figcaption, .reblogs, .linkpost .caption {
+    padding:20px;
 }
 
 a {
@@ -1033,28 +1043,36 @@ body.night a:hover {
 
 /* blacklisting */
 
+
     {block:IndexPage} 
     .{text:blacklist1}{color:{color:post warning text};
         overflow:hidden;
-       height:5em;
+       height:60px;
         }
-    
-    .tet{display:none; height:5em; padding:10px;}
- 
+    .{text:blacklist1} img {display:none;}    
+    .tet{display:none; height:80px; padding:10px;}
+ .tet1, .tet2, .tet3 {
+     background:{color:posts};
+ }
     .{text:blacklist1} .tet{display:block; z-index:999999; color:{color:post warning text};}
     .{text:blacklist2}{color:{color:post warning text};
         overflow:hidden;
-       height:60px;
+       height:80px;
         }
-    .tet img {display:none;}    
-
-
+    .{text:blacklist2} img {display:none;}    
+    .tet2{display:none; height:80px; padding:10px;}
+ 
+    .{text:blacklist2} .tet2{display:block; z-index:999999; color:{color:post warning text};
+    }
+    
     .{text:blacklist3}{color:{color:post warning text};
         overflow:hidden;
-       height:5em;
+       height:80px;
         }
-
-  .{text:blacklist1} .tet,    .{text:blacklist2} .tet, .{text:blacklist3} .tet{display:block; z-index:999999; color:{color:post warning text};
+    .{text:blacklist3} img {display:none;}    
+    .tet3{display:none; height:80px; padding:10px;}
+ 
+    .{text:blacklist3} .tet3{display:block; z-index:999999; color:{color:post warning text};
     }
     {/block:IndexPage}
    
@@ -1213,14 +1231,14 @@ body.night a:hover {
                   clip: rect(1px, 1px, 1px, 1px);" >this post is blacklisted because it contains {text:blacklist1} and is not fully visible on the index page. the link takes you to the permalink page.</span>
                click here to view it</font>. </a>
             </div>
-            <div class="tet" style="color:{color:post warning text}"><font style="color:{color:post warning text}">this post is tagged as {text:blacklist2}.<br>
+            <div class="tet2" style="color:{color:post warning text}"><font style="color:{color:post warning text}">this post is tagged as {text:blacklist2}.<br>
                <a href="{permalink}">
                <span class="sr-only" style="position: absolute !important;
                   clip: rect(1px 1px 1px 1px);
                   clip: rect(1px, 1px, 1px, 1px);" >this post is blacklisted because it contains {text:blacklist2} and is not fully visible on the index page. the link takes you to the permalink page. </span>
                click here to view it</font>.</a>
             </div>
-            <div class="tet" style="color:{color:post warning text}">
+            <div class="tet3" style="color:{color:post warning text}">
                <font style="color:{color:post warning text}">this post is tagged as {text:blacklist3}. <br>
                <a href="{permalink}">
                <span class="sr-only" style="position: absolute !important;
