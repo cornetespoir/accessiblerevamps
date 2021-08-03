@@ -46,7 +46,7 @@ Version 1.1
 <script>
 function flexFrame() {
    $(".caption").each(function() {
-        $(this).find("iframe").wrap("<div class='capframe'></div>"); // wrap iframe 
+        $(this).find(".video iframe").wrap("<div class='capframe'></div>"); // wrap iframe 
         flexibleFrames($(".capframe"));
     });
     flexibleFrames($(".video"));
